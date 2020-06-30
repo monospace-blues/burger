@@ -27,12 +27,18 @@ router.get("/", function (req, res) {
 });
 
 // inserting a new burger!
-router.post("/api/cats", function (req, res) {
+router.post("/api/burgers", function (req, res) {
+    console.log(req.body);
+    // burger.insert()
+    res.status(200).end();
 
 });
 
 // devourering a burger!
-router.put("/api/cats/:id", function (req, res) {
+router.put("/api/burgers/:id", function (req, res) {
+    console.log(req.params.id);
+
+    res.status(200).end();
 
 });
 
