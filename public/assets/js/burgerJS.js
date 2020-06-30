@@ -7,10 +7,12 @@ $(function() {
 $(".changed-devoured").click(function (event) {
     event.preventDefault();
 
+    // set id to a variable
     let id = $(this).data("id");
 
     console.log(id);
 
+    // PUT (change to devoured) request
     $.ajax("/api/burgers/" + id, {
         type: "PUT"
     }).then(function() {

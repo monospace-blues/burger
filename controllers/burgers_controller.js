@@ -28,17 +28,29 @@ router.get("/", function (req, res) {
 
 // inserting a new burger!
 router.post("/api/burgers", function (req, res) {
-    console.log(req.body);
-    // burger.insert()
-    res.status(200).end();
+    // req.body is where we'll get the data sent to us from the front end.
+
+    // send this data to the DB
+    burger.insert(req.body.name, function (result) {
+        res.json({ id: result.insertId });
+    });
+    
 
 });
 
 // devourering a burger!
 router.put("/api/burgers/:id", function (req, res) {
     console.log(req.params.id);
+    // req.params.id is where we'll get the id of the burger that will be devoured
 
-    res.status(200).end();
+    // send this data to the DB
+    burger.devoured(req.params.id, function (result) {
+        if (result.changedRows === 0) {
+            return res.status(404).end();
+        }
+        res.status(200).end();
+    });
+
 
 });
 
