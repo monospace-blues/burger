@@ -1,0 +1,11 @@
+body {
+    background-color: yellow;
+}
+/* Spacing for the buttons to fit properly */
+li {
+    margin-bottom: 15px;
+}
+
+.row {
+    margin-bottom: 20px;
+}

@@ -1,28 +1,46 @@
-<h1>Eat-da-Burgers!</h1>
+<div class="text-center">
+    <h1 class="text-center">Eat-da-Burgers!</h1>
+    <img src="assets/img/hamburger.png">
+</div>
 
-<h2>List of burgers ready!</h2>
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-        <li>{{id}} {{burger_name}} <span><button class="changed-devoured" data-id="{{id}}">TIME TO EAT</button></span></li>
-        {{/unless}}
-    {{/each}}
-</ul>
 
-<h2>Devoured Already</h2>
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-        <li>{{id}} {{burger_name}}</li>
-        {{/if}}
-    {{/each}}
-</ul>
 
-<h2>Add a burger!</h2>
-<form class="create-form">
-    <div class="form-group">
-        <label for="burg">Burger Name: </label>
-        <input type="text" id="burg" name="name">
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-center">List of burgers ready!</h3>
+        <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                <li>{{id}} {{burger_name}} <span><button class="changed-devoured btn btn-danger float-right" type="button" data-id="{{id}}">TIME TO EAT</button></span></li>
+            {{/unless}}
+        {{/each}}
+    </ul>
     </div>
-    <button type="submit">Add Burger</button>
-</form>
+    
+    <div class="col-md-6">
+        <h3 class="text-center">Devoured Already</h3>
+        <ul>
+            {{#each burgers}}
+                {{#if devoured}}
+                <li>{{id}} {{burger_name}}</li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+    
+</div>
+
+
+<div class="row border-top border-dark">
+    <div class="mx-auto">
+        <h2 class="text-center pt-3">Add a burger!</h2>
+        <form class="create-form">
+            <div class="form-group">
+                <label for="burg">Burger Name: </label>
+                <input class="form-control" type="text" id="burg" name="name" placeholder="Enter Burger Name">
+            </div>
+            <button type="button" class="btn btn-danger btn-block" type="submit">Add Burger</button>
+        </form>
+    </div>
+    
+</div>
